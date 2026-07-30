@@ -1,0 +1,81 @@
+// @ts-nocheck
+
+const product1 = { price: 10, title: 'JS od podstaw' };  
+const product2 = { price: '20', title: 'PHP od podstaw' };        
+const discount = 10;
+let discountEnabled = false;
+
+// definicje elementów
+const discountElement = document.querySelector('#discount');
+const discountCheckbox = document.querySelector('#add-discount');
+const itemsContainer = document.querySelector('#items');
+
+// dodaj produkty do tabeli
+function addItem(item) {
+    itemsContainer.innerHTML += `
+    <tr> 
+        <td><button class="delete">x</button></td>
+        <td>${item.title}</td>
+        <td><input class="quantity" type="number" value="1" /></td>
+        <td>${item.price}</td>
+    </tr>`;
+}
+addItem(product1);
+
+// usuuwanie wierszy
+function removeRow(e) {
+    if (e.target.tagName === 'BUTTON') {
+        const row = e.target.closest('tr');
+        row.remove();
+    }
+}
+
+function removeRowFromQuantity(e) {
+    if (Number(e.target.value) === 0) {
+        const row = e.target.closest('tr');
+        row.remove();
+    }
+}
+
+// zmień kolor tła wiersza po kliknięciu
+function markBg(e) {
+    if (e.target.tagName === 'TD') {
+        e.target.closest('tr').classList.toggle('marked');
+    }   
+}
+
+// dodaj zniżkę
+function addDiscount(e) {
+    discountEnabled = e.target.checked;
+    if (discount > 0) {
+        document.querySelector('#discount-amount').innerHTML = -discount;
+        discountElement.classList.toggle('hidden');
+    } 
+    calculatePrice();  
+}
+
+// cena całkowita
+function calculatePrice() {
+    let total = Number(product1.price) + Number(product2.price);
+    if (discountEnabled) {
+        total -= discount;
+    }
+    document.querySelector('#total-price').innerHTML = total;
+}
+
+calculatePrice();
+
+// listenery
+discountCheckbox.addEventListener('click', addDiscount);
+itemsContainer.addEventListener('click', markBg);
+itemsContainer.addEventListener('click', removeRow);
+itemsContainer.addEventListener('change', removeRowFromQuantity);
+
+// zaznacz checkbox na początku jeśli trzeba
+const discountDataset = +discountElement.dataset.discountShouldBeEnabled;
+
+if (discountDataset) {
+    discountCheckbox.click();
+}
+
+addItem(product2);

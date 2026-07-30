@@ -19,6 +19,39 @@ body {
     border: 1px solid #e5e5e5;
 }
 
+.card-table td input {
+    width: 30px;
+}
+
 .card-table th {
     background-color: #ededed;
+}
+
+.discount {
+    border: 1px solid #3bc53b;
+    padding: 4px 8px;
+    background-color: #b9f3b9;
+}
+
+.hidden {
+    display: none;
+}
+
+.marked {
+    background-color: #faebd7;
+}
+
+.delete {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: grey;
+    cursor: pointer;
+}
+
+input {
+    padding: 6px;
+    border: none;
+    border-bottom: 3px solid #dbdbdb;
+    background-color: #f1f1f1;
 }
