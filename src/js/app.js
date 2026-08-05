@@ -1,10 +1,16 @@
 // @ts-nocheck
 const coursesList = document.querySelector('.coursers-list');
+const counter = document.querySelector('.counter');
+
 const items = [];
 
+const refreshProductsCount = () => {
+    counter.innerText = items.length;
+}
+
 const addToCart = (title, price, quantity = 1) => {
-    console.log(title, price, quantity);
     items.push({ title, price, quantity});
+    refreshProductsCount();
     console.log(items);
 };
 
