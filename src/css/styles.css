@@ -71,6 +71,14 @@ input {
 .button:hover {
   background-color: #4f4f4f;
 }
+.in-cart {
+  background-color: #e8621f;
+  color: #fff;
+}
+.in-cart:hover {
+  background-color: #ec6d2d;
+  color: #fff;
+} 
 .coursers-list {
   display: flex;
   flex-wrap: wrap;
@@ -104,4 +112,10 @@ input {
   padding: 0 20px;
   max-width: 980px;
   margin: 0 auto;
+}
+.promotion {
+  background-color: #b7ebb7;
+  border: 2px dashed #30b930;
+  margin-bottom: 20px;
+  padding: 0 10px;
 }

@@ -16,15 +16,20 @@
     </ul>
 
     <div class="cart">
-      <button class="button">
+      <a href="koszyk.html" class="button">
         Koszyk 
         <span class="counter">0</span>
-      </button>
+      </a>
     </div>
   </nav>
 
   <div class="container">
     <h2>Dostępne kursy:</h2>
+
+    <div class="promotion">
+      <p>Promocja na wszystkie kursy jeszcze przez:</p>
+      <p id="promotion-counter"></p>
+    </div>
 
     <section class="coursers-list">
       <div class="box">
@@ -35,7 +40,9 @@
           <button 
             class="button" 
             data-title="PHP od podstaw" 
-            data-price="99.02">Dodaj do koszyka</button>
+            data-price="99.02"
+            data-id="1"
+            >Dodaj do koszyka</button>
         </div>
       </div>
   
@@ -47,13 +54,17 @@
           <button 
             class="button" 
             data-title="JS od podstaw" 
-            data-price="99.01">Dodaj do koszyka</button>
+            data-price="99.01"
+            data-id="2"
+            >Dodaj do koszyka</button>
         </div>
       </div>
     </section>
 
   </div>
 
+  <script src="src/js/home.js"></script>
   <script src="src/js/app.js"></script>
+  <script src="src/js/counter.js"></script>
 </body>
 </html>
