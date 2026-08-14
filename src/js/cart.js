@@ -23,16 +23,16 @@
             console.log(id);
             const index = this.items.findIndex(item => item.id === id);
             this.items.splice(index, 1);
+            localStorage.setItem('items', JSON.stringify(this.items));
         },
         discount: {
             amount: 10,
             enabled: false,  
         },  
-        items: [    
-            { id: 1, price: 10, title: 'JS od podstaw' },
-            { id: 2, price: 20, title: 'PHP od podstaw' },
-        ],             
-    }  
+        items: [],             
+    } 
+    
+    cart.items = JSON.parse(localStorage.getItem('items'));
 
     // definicje elementów
     const discountElement = document.querySelector('#discount');
